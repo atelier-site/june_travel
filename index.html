@@ -1,0 +1,778 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>【しおり】2026.06 中四国・関西ドライブ旅</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&family=DM+Serif+Display&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      *,
+      *::before,
+      *::after {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
+      :root {
+        --ink: #1a1a1a;
+        --muted: #666;
+        --border: #e0dbd3;
+        --bg: #faf8f4;
+        --card: #ffffff;
+        --d1: #2c5f8a;
+        --d2: #3d7a5e;
+        --d3: #8a6b2c;
+        --d4: #7a3d5e;
+        --accent: #c85a2a;
+      }
+
+      body {
+        font-family: "Noto Sans JP", sans-serif;
+        background: var(--bg);
+        color: var(--ink);
+        font-size: 14px;
+        line-height: 1.6;
+        padding: 0 0 60px;
+      }
+
+      /* Header */
+      .hero {
+        background: var(--ink);
+        color: #fff;
+        padding: 36px 20px 28px;
+        position: relative;
+        overflow: hidden;
+      }
+      .hero::before {
+        content: "";
+        position: absolute;
+        top: -40px;
+        right: -40px;
+        width: 180px;
+        height: 180px;
+        border-radius: 50%;
+        background: rgba(255, 255, 255, 0.04);
+      }
+      .hero-label {
+        font-size: 11px;
+        letter-spacing: 0.12em;
+        color: rgba(255, 255, 255, 0.5);
+        text-transform: uppercase;
+        margin-bottom: 6px;
+      }
+      .hero-title {
+        font-family: "DM Serif Display", serif;
+        font-size: 30px;
+        font-weight: 400;
+        line-height: 1.2;
+        margin-bottom: 14px;
+      }
+      .hero-meta {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+      }
+      .hero-pill {
+        font-size: 12px;
+        background: rgba(255, 255, 255, 0.12);
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        border-radius: 20px;
+        padding: 3px 10px;
+        color: rgba(255, 255, 255, 0.85);
+      }
+
+      /* Content */
+      .content {
+        padding: 0 16px;
+      }
+
+      /* Day block */
+      .day {
+        margin-top: 24px;
+      }
+
+      .day-header {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        margin-bottom: 10px;
+      }
+      .day-badge {
+        font-size: 11px;
+        font-weight: 700;
+        letter-spacing: 0.08em;
+        color: #fff;
+        border-radius: 4px;
+        padding: 3px 8px;
+        flex-shrink: 0;
+      }
+      .d1 .day-badge {
+        background: var(--d1);
+      }
+      .d2 .day-badge {
+        background: var(--d2);
+      }
+      .d3 .day-badge {
+        background: var(--d3);
+      }
+      .d4 .day-badge {
+        background: var(--d4);
+      }
+
+      .day-title {
+        font-size: 14px;
+        font-weight: 700;
+        color: var(--ink);
+      }
+      .day-date {
+        font-size: 12px;
+        color: var(--muted);
+        margin-left: auto;
+        flex-shrink: 0;
+      }
+
+      /* Events */
+      .events {
+        background: var(--card);
+        border-radius: 12px;
+        border: 1px solid var(--border);
+        overflow: hidden;
+      }
+      .event {
+        display: flex;
+        gap: 12px;
+        padding: 11px 14px;
+        border-bottom: 1px solid var(--border);
+        align-items: flex-start;
+      }
+      .event:last-child {
+        border-bottom: none;
+      }
+
+      .event-left {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 4px;
+        min-width: 40px;
+      }
+      .event-icon {
+        font-size: 18px;
+        line-height: 1;
+      }
+      .event-time {
+        font-size: 10px;
+        color: var(--muted);
+        text-align: center;
+        white-space: nowrap;
+      }
+
+      .event-body {
+        flex: 1;
+        min-width: 0;
+      }
+      .event-name {
+        font-size: 13px;
+        font-weight: 500;
+        color: var(--ink);
+        margin-bottom: 2px;
+      }
+      .event-detail {
+        font-size: 12px;
+        color: var(--muted);
+      }
+      .event-note {
+        font-size: 11px;
+        color: var(--accent);
+        margin-top: 3px;
+      }
+
+      /* Links */
+      a {
+        color: inherit;
+        text-decoration: none;
+        border-bottom: 1.5px solid currentColor;
+        padding-bottom: 0px;
+        opacity: 0.85;
+      }
+      a:active {
+        opacity: 0.6;
+      }
+
+      .map-link {
+        display: inline-flex;
+        align-items: center;
+        gap: 3px;
+        font-size: 11px;
+        color: #2c5f8a;
+        border: 1px solid #c5d8eb;
+        border-radius: 20px;
+        padding: 2px 8px;
+        margin-top: 4px;
+        text-decoration: none;
+        border-bottom: none;
+      }
+      .map-link::before {
+        content: "📍";
+        font-size: 11px;
+      }
+
+      /* Multi-spot row */
+      .spots {
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+      }
+      .spot-item {
+        font-size: 12px;
+        color: var(--ink);
+      }
+
+      /* Cost section */
+      .cost-section {
+        margin-top: 24px;
+        background: var(--card);
+        border-radius: 12px;
+        border: 1px solid var(--border);
+        overflow: hidden;
+      }
+      .cost-header {
+        padding: 12px 14px 10px;
+        font-size: 13px;
+        font-weight: 700;
+        border-bottom: 1px solid var(--border);
+      }
+      .cost-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 1px;
+        background: var(--border);
+      }
+      .cost-item {
+        background: var(--card);
+        padding: 10px 14px;
+      }
+      .cost-label {
+        font-size: 11px;
+        color: var(--muted);
+        margin-bottom: 2px;
+      }
+      .cost-val {
+        font-size: 15px;
+        font-weight: 700;
+      }
+      .cost-total {
+        padding: 12px 14px;
+        border-top: 1px solid var(--border);
+      }
+      .cost-total-row {
+        display: flex;
+        justify-content: space-between;
+        align-items: baseline;
+        margin-bottom: 4px;
+      }
+      .cost-total-label {
+        font-size: 12px;
+        color: var(--muted);
+      }
+      .cost-total-val {
+        font-size: 18px;
+        font-weight: 700;
+      }
+      .cost-per {
+        font-size: 12px;
+        color: var(--muted);
+        text-align: right;
+      }
+      .cost-per span {
+        color: var(--ink);
+        font-weight: 700;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="hero">
+      <p class="hero-label">Travel Plan</p>
+      <h1 class="hero-title">
+        ※ドライバーに感謝🙏<br />総距離1,500km超えの限界ドライブツアー
+      </h1>
+      <div class="hero-meta">
+        <span class="hero-pill">📅 6/14（日）〜 6/17（水）</span>
+        <span class="hero-pill">👥 8人</span>
+        <span class="hero-pill">🚗 1,478km</span>
+      </div>
+    </div>
+
+    <div class="content">
+      <!-- Day 1 -->
+      <div class="day d1">
+        <div class="day-header">
+          <span class="day-badge">DAY 1</span>
+          <span class="day-title">金沢 → 蒜山 → 出雲</span>
+          <span class="day-date">6/14（日）</span>
+        </div>
+        <div class="events">
+          <div class="event">
+            <div class="event-left">
+              <span class="event-icon">🚗</span>
+              <span class="event-time">7:00<br />↓<br />13:30</span>
+            </div>
+            <div class="event-body">
+              <p class="event-name">金沢 → 悠悠（蒜山）</p>
+              <p class="event-detail">469km ／ 高速 ¥6,840</p>
+              <p class="event-note">
+                移動5時間半 ＋ SA休憩1時間（タイミング・回数は当日次第）
+              </p>
+              <p class="event-note">
+                ☕ 悠悠は待ち時間が発生する可能性があるため、SAで軽く食べておく
+              </p>
+            </div>
+          </div>
+
+          <div class="event">
+            <div class="event-left">
+              <span class="event-icon">🍽️</span>
+              <span class="event-time">13:30<br />↓<br />15:00</span>
+            </div>
+            <div class="event-body">
+              <p class="event-name">昼食 ｜ 悠悠</p>
+              <p class="event-detail">
+                焼きそば・唐揚げ　※混雑時は待ち時間あり
+              </p>
+              <p class="event-note">
+                課金してファストパス利用も可（8人で2,200円）
+              </p>
+              <a
+                class="map-link"
+                href="https://maps.app.goo.gl/ufvnfr4uKwjPNq3B9"
+                target="_blank"
+                >Google マップで開く</a
+              >
+            </div>
+          </div>
+
+          <div class="event">
+            <div class="event-left">
+              <span class="event-icon">🚗</span>
+              <span class="event-time">15:00<br />↓<br />16:30</span>
+            </div>
+            <div class="event-body">
+              <p class="event-name">悠悠 → 出雲大社</p>
+              <p class="event-detail">114km ／ 高速 ¥1,720</p>
+            </div>
+          </div>
+
+          <div class="event">
+            <div class="event-left">
+              <span class="event-icon">⛩️</span>
+              <span class="event-time">16:30<br />↓<br />17:30</span>
+            </div>
+            <div class="event-body">
+              <p class="event-name">出雲大社 参拝・周辺散策</p>
+              <a
+                class="map-link"
+                href="https://maps.app.goo.gl/FMssngQZqHgJeQ5E9"
+                target="_blank"
+                >Google マップで開く</a
+              >
+            </div>
+          </div>
+
+          <div class="event">
+            <div class="event-left">
+              <span class="event-icon">🍽️</span>
+              <span class="event-time">18:00<br />↓<br />20:00</span>
+            </div>
+            <div class="event-body">
+              <p class="event-name">夕食</p>
+              <p class="event-note">
+                お店未定・現地で探す or 行きたいところ募集中！
+              </p>
+            </div>
+          </div>
+
+          <div class="event">
+            <div class="event-left">
+              <span class="event-icon">🏨</span>
+              <span class="event-time">20:30〜</span>
+            </div>
+            <div class="event-body">
+              <p class="event-name">
+                センチュリオンホテル＆スパクラシック 出雲
+              </p>
+              <a
+                class="map-link"
+                href="https://maps.app.goo.gl/5gcmBPVCt2cFpAva8"
+                target="_blank"
+                >Google マップで開く</a
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Day 2 -->
+      <div class="day d2">
+        <div class="day-header">
+          <span class="day-badge">DAY 2</span>
+          <span class="day-title">出雲 → 尾道 → 福山</span>
+          <span class="day-date">6/15（月）</span>
+        </div>
+        <div class="events">
+          <div class="event">
+            <div class="event-left">
+              <span class="event-icon">🍳</span>
+              <span class="event-time">〜9:00</span>
+            </div>
+            <div class="event-body">
+              <p class="event-name">ホテル朝食</p>
+            </div>
+          </div>
+
+          <div class="event">
+            <div class="event-left">
+              <span class="event-icon">🚗</span>
+              <span class="event-time">9:00<br />↓<br />11:00</span>
+            </div>
+            <div class="event-body">
+              <p class="event-name">出雲 → 尾道</p>
+              <p class="event-detail">138km ／ 高速 ¥150</p>
+            </div>
+          </div>
+
+          <div class="event">
+            <div class="event-left">
+              <span class="event-icon">🍜</span>
+              <span class="event-time">11:00<br />↓<br />12:00</span>
+            </div>
+            <div class="event-body">
+              <p class="event-name">昼食 ｜ 東珍康（尾道ラーメン）</p>
+              <a
+                class="map-link"
+                href="https://maps.app.goo.gl/eKvjhSJ65GWVfoEC7"
+                target="_blank"
+                >Google マップで開く</a
+              >
+            </div>
+          </div>
+
+          <div class="event">
+            <div class="event-left">
+              <span class="event-icon">🚶</span>
+              <span class="event-time">12:00<br />↓<br />17:30</span>
+            </div>
+            <div class="event-body">
+              <p class="event-name">尾道 散策</p>
+              <p class="event-note">
+                例）八天堂ビレッジに行くのもあり（車で約30分）
+              </p>
+              <a
+                class="map-link"
+                href="https://maps.app.goo.gl/C5wrrLwPHT54ZWhx8"
+                target="_blank"
+                >Google マップで開く</a
+              >
+            </div>
+          </div>
+
+          <div class="event">
+            <div class="event-left">
+              <span class="event-icon">🚗</span>
+              <span class="event-time">17:30<br />↓<br />18:00</span>
+            </div>
+            <div class="event-body">
+              <p class="event-name">尾道 → 福山市</p>
+            </div>
+          </div>
+
+          <div class="event">
+            <div class="event-left">
+              <span class="event-icon">🍽️</span>
+              <span class="event-time">18:00<br />↓<br />20:00</span>
+            </div>
+            <div class="event-body">
+              <p class="event-name">夕食</p>
+              <p class="event-note">
+                お店未定・現地で探す or 行きたいところ募集中！
+              </p>
+            </div>
+          </div>
+
+          <div class="event">
+            <div class="event-left">
+              <span class="event-icon">🏨</span>
+              <span class="event-time">20:30〜</span>
+            </div>
+            <div class="event-body">
+              <p class="event-name">ダイワロイネットホテル 福山駅前</p>
+              <a
+                class="map-link"
+                href="https://maps.app.goo.gl/tTRQsHgcfZ5imvv39"
+                target="_blank"
+                >Google マップで開く</a
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Day 3 -->
+      <div class="day d3">
+        <div class="day-header">
+          <span class="day-badge">DAY 3</span>
+          <span class="day-title">しまなみ海道 → 松山 → 淡路島</span>
+          <span class="day-date">6/16（火）</span>
+        </div>
+        <div class="events">
+          <div class="event">
+            <div class="event-left">
+              <span class="event-icon">🍳</span>
+              <span class="event-time">〜9:00</span>
+            </div>
+            <div class="event-body">
+              <p class="event-name">ホテル朝食</p>
+            </div>
+          </div>
+
+          <div class="event">
+            <div class="event-left">
+              <span class="event-icon">🚗</span>
+              <span class="event-time">9:00<br />↓<br />11:00</span>
+            </div>
+            <div class="event-body">
+              <p class="event-name">福山 → 松山市（しまなみ海道経由）</p>
+              <p class="event-detail">116km ／ 高速 ¥2,950</p>
+            </div>
+          </div>
+
+          <div class="event">
+            <div class="event-left">
+              <span class="event-icon">🗺️</span>
+              <span class="event-time">道中<br />立ち寄り</span>
+            </div>
+            <div class="event-body">
+              <p class="event-name">しまなみ海道 立ち寄りスポット</p>
+              <div class="spots">
+                <div class="spot-item">
+                  🍊 はっさく屋
+                  <a
+                    class="map-link"
+                    href="https://maps.app.goo.gl/XvB1m4DLbsBDdVe89"
+                    target="_blank"
+                    >マップ</a
+                  >
+                </div>
+                <div class="spot-item">
+                  🏔️ 亀老山展望公園
+                  <a
+                    class="map-link"
+                    href="https://maps.app.goo.gl/4XqkDZTbJiuZwDBh6"
+                    target="_blank"
+                    >マップ</a
+                  >
+                </div>
+                <div class="spot-item">
+                  🍦 伯方塩業 大三島工場（ソフトクリーム）
+                  <a
+                    class="map-link"
+                    href="https://maps.app.goo.gl/HhEWu2BG3FZY7VW79"
+                    target="_blank"
+                    >マップ</a
+                  >
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="event">
+            <div class="event-left">
+              <span class="event-icon">🍚</span>
+              <span class="event-time">11:00<br />↓<br />13:00</span>
+            </div>
+            <div class="event-body">
+              <p class="event-name">昼食 ｜ 鯛めし（松山）</p>
+            </div>
+          </div>
+
+          <div class="event">
+            <div class="event-left">
+              <span class="event-icon">🚶</span>
+              <span class="event-time">13:00<br />↓<br />15:30</span>
+            </div>
+            <div class="event-body">
+              <p class="event-name">松山市 観光</p>
+              <div class="spots" style="margin-top: 4px">
+                <div class="spot-item">
+                  🥞 Crepe cafe Coco
+                  <a
+                    class="map-link"
+                    href="https://maps.app.goo.gl/zoJ6k27CmFrXauWY9"
+                    target="_blank"
+                    >マップ</a
+                  >
+                </div>
+                <div class="spot-item">
+                  🏯 松山城
+                  <a
+                    class="map-link"
+                    href="https://maps.app.goo.gl/GL1CPessB5N4vfAG8"
+                    target="_blank"
+                    >マップ</a
+                  >
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="event">
+            <div class="event-left">
+              <span class="event-icon">🚗</span>
+              <span class="event-time">15:30<br />↓<br />18:30</span>
+            </div>
+            <div class="event-body">
+              <p class="event-name">松山 → 淡路島</p>
+              <p class="event-detail">220km ／ 高速 約¥4,000</p>
+            </div>
+          </div>
+
+          <div class="event">
+            <div class="event-left">
+              <span class="event-icon">🍽️</span>
+              <span class="event-time">18:30<br />↓<br />20:30</span>
+            </div>
+            <div class="event-body">
+              <p class="event-name">夕食（道中または淡路島内）</p>
+              <p class="event-note">
+                お店未定・現地で探す or 行きたいところ募集中！
+              </p>
+            </div>
+          </div>
+
+          <div class="event">
+            <div class="event-left">
+              <span class="event-icon">🏨</span>
+              <span class="event-time">20:30〜</span>
+            </div>
+            <div class="event-body">
+              <p class="event-name">ホテルニューアワジ プラザ淡路島</p>
+              <a
+                class="map-link"
+                href="https://maps.app.goo.gl/F3rEqnTFBvZFDBch6"
+                target="_blank"
+                >Google マップで開く</a
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Day 4 -->
+      <div class="day d4">
+        <div class="day-header">
+          <span class="day-badge">DAY 4</span>
+          <span class="day-title">淡路島 → 大阪 → 金沢</span>
+          <span class="day-date">6/17（水）</span>
+        </div>
+        <div class="events">
+          <div class="event">
+            <div class="event-left">
+              <span class="event-icon">🍳</span>
+              <span class="event-time">〜9:00</span>
+            </div>
+            <div class="event-body">
+              <p class="event-name">ホテル朝食</p>
+            </div>
+          </div>
+
+          <div class="event">
+            <div class="event-left">
+              <span class="event-icon">🚗</span>
+              <span class="event-time">9:00<br />↓<br />11:00</span>
+            </div>
+            <div class="event-body">
+              <p class="event-name">淡路島 → 大阪</p>
+              <p class="event-detail">117km ／ 高速 ¥3,340</p>
+            </div>
+          </div>
+
+          <div class="event">
+            <div class="event-left">
+              <span class="event-icon">🍜</span>
+              <span class="event-time">11:00<br />↓<br />12:30</span>
+            </div>
+            <div class="event-body">
+              <p class="event-name">昼食 ｜ まんしゅう 西中島店（ジャン麺）</p>
+              <a
+                class="map-link"
+                href="https://maps.app.goo.gl/MuQa44etpdtQucJYA"
+                target="_blank"
+                >Google マップで開く</a
+              >
+            </div>
+          </div>
+
+          <div class="event">
+            <div class="event-left">
+              <span class="event-icon">🚶</span>
+              <span class="event-time">12:30<br />↓<br />14:30</span>
+            </div>
+            <div class="event-body">
+              <p class="event-name">周辺散策</p>
+            </div>
+          </div>
+
+          <div class="event">
+            <div class="event-left">
+              <span class="event-icon">🚗</span>
+              <span class="event-time">14:30<br />↓<br />19:00</span>
+            </div>
+            <div class="event-body">
+              <p class="event-name">大阪 → 金沢（帰路）</p>
+              <p class="event-detail">304km ／ 高速 ¥4,970</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 費用 -->
+      <div class="cost-section" style="margin-top: 28px">
+        <div class="cost-header">💰 費用まとめ（8人）</div>
+        <div class="cost-grid">
+          <div class="cost-item">
+            <div class="cost-label">ホテル</div>
+            <div class="cost-val">¥229,776</div>
+          </div>
+          <div class="cost-item">
+            <div class="cost-label">高速代</div>
+            <div class="cost-val">¥23,970</div>
+          </div>
+          <div class="cost-item">
+            <div class="cost-label">食費（概算）</div>
+            <div class="cost-val">¥112,000</div>
+          </div>
+          <div class="cost-item">
+            <div class="cost-label">ガソリン（概算）</div>
+            <div class="cost-val">¥40,000</div>
+          </div>
+        </div>
+        <div class="cost-total">
+          <div class="cost-total-row">
+            <span class="cost-total-label">合計</span>
+            <span class="cost-total-val">¥405,746</span>
+          </div>
+          <p class="cost-per">
+            1人あたり <span>¥50,718</span>　／　ガソリン除く
+            <span>¥45,718</span>
+          </p>
+          <p class="cost-per" style="margin-top: 2px; font-size: 11px">
+            食費 ¥2,000 × 7食 × 8人で計算
+          </p>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
